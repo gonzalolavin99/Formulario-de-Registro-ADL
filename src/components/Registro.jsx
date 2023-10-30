@@ -5,7 +5,7 @@ import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 const Registro = () => {
   return (
     <div>
-      <h1>Crea una cuenta</h1>
+     
       <div>
         <SocialButton
           facebookIcon={<FaFacebook />}
@@ -13,6 +13,7 @@ const Registro = () => {
           linkedinIcon={<FaLinkedin />}
         />
       </div>
+      <p>O usa tu email para registrarte</p>
     </div>
   )
 }
