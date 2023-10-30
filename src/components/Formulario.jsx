@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Formulario = () => {
+const Formulario = ({ mostrarAlerta }) => {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
@@ -10,7 +10,10 @@ const Formulario = () => {
   const validarDatos = (e) => {
     e.preventDefault();
     if (contraseña !== confirmarContraseña) {
-      alert("Las  contraseñas no coinciden");
+      mostrarAlerta("Las contraseñas no coinciden", "danger");
+      setError(true);
+    } else if (!nombre || !email || !contraseña || !confirmarContraseña) {
+      mostrarAlerta("Por favor, completa todos los campos", "danger");
       setError(true);
     } else {
       setError(false);
@@ -18,6 +21,7 @@ const Formulario = () => {
       setEmail("");
       setContraseña("");
       setConfirmarContraseña("");
+      mostrarAlerta("Registro exitoso", "success");
     }
   };
   return (
